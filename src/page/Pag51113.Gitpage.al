@@ -16,9 +16,9 @@ page 51113 "Gitpage"
                     ApplicationArea = All;
 
                 }
-                field("Name";"Name")
+                field("Name"; "Name")
                 {
-                   ApplicationArea = All;
+                    ApplicationArea = All;
                 }
             }
         }
@@ -48,7 +48,13 @@ page 51113 "Gitpage"
             }
             action(CuDemo)
             {
-                message('Success');
+                ApplicationArea = All;
+                trigger OnAction()
+
+                begin
+                    Message('Success');
+                end;
+
             }
         }
     }
