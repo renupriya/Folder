@@ -48,7 +48,7 @@ page 51113 "Gitpage"
             }
             action(CuDemo)
             {
-                
+                message('Success');
             }
         }
     }
