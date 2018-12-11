@@ -46,15 +46,10 @@ page 51113 "Gitpage"
                     custreport.Run();
                 end;
             }
-            action(SampleDemo)
+            action(CuDemo)
             {
-                ApplicationArea = All;
-                trigger OnAction()
 
-                begin
-                    Message('Success');
-                end;
-
+                ApplicationArea = ALL;
             }
         }
     }
