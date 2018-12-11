@@ -37,6 +37,7 @@ pageextension 51121 "SalesorderListExt" extends "Sales Order"
                     SMTPMail.CreateMessage(UserRec."User Name", 'renupriya.k@cetastech.com', 'santhiyaragavi.l@cetastech.com', Format(SH."No."), Format(SH."Sell-to Customer Name"), true);
                     SMTPMail.Send();
                     Message('mail send successfully');
+                    message('Git initialized');
 
                 end;
             }
