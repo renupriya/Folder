@@ -15,9 +15,13 @@ page 51116 "SalesOrder1"
                 field("No."; "No.")
                 {
                     ApplicationArea = ALL;
+
                 }
                 field("Customer No."; "Sell-to Customer No.")
-                { ApplicationArea = All; }
+                {
+                    ApplicationArea = All;
+
+                }
                 field("Sell-to Customer Name"; "Sell-to Customer Name")
                 {
                     Importance = Additional;
@@ -125,8 +129,13 @@ page 51116 "SalesOrder1"
             }
             part("Sales Order Subform"; "Sales Order Subform")
             {
+
                 SubPageLink = "Document No." = field ("No.");
                 ApplicationArea = ALL;
+
+                UpdatePropagation = Both;
+
+
             }
             group(InvoiceDetails)
             {
@@ -330,47 +339,11 @@ page 51116 "SalesOrder1"
 
 
 
+
     actions
     {
         area(processing)
         {
-            action(Report)
-            {
-                Image = Report;
-                trigger OnAction()
-                begin
-                    SH.Reset();
-                    SH.SetRange("No.", Rec."No.");
-                    tex := '<?xml version="1.0" standalone="yes"?>'
-                            + '<ReportParameters name="Sales Order Document" id="50119">'
-                            + '<DataItems>'
-                            + '<DataItem name="Sales Header">' + SH.GETVIEW(FALSE) + '</DataItem>'
-                            + '</DataItems>'
-                            + '</ReportParameters>';
-                    Report.Execute(50119, tex);
-                end;
-
-            }
-            action(Vanithareport)
-            {
-                Image = Report2;
-                trigger onAction()
-
-
-                begin
-                    Report.run(50118);
-                end;
-            }
-            action(RtcPage)
-            {
-                Image = ViewPage;
-                trigger onAction()
-
-                begin
-
-                    Page.Run(50120);
-                end;
-            }
             action(SendMail)
             {
                 Image = MailAttachment;
@@ -379,7 +352,6 @@ page 51116 "SalesOrder1"
                 begin
 
                     SMTPMail.CreateMessage(UserRec."User Name", 'renupriya.k@cetastech.com', 'santhiyaragavi.l@cetastech.com', Format(SlineRec.Quantity), Format(SlineRec.Amount), true);
-                    //SMTPMail.AddAttachment('D:\RENU\sample.txt','sample.txt');
                     SMTPMail.Send();
                     Message('mail send successfully');
 
@@ -399,6 +371,7 @@ page 51116 "SalesOrder1"
         SMTPMail: Codeunit "SMTP Mail";
         UserRec: Record User;
         SlineRec: Record "Sales Line";
+        DynamicEditable: Boolean;
 
 
 }
