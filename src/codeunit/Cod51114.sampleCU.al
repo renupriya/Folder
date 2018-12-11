@@ -5,7 +5,7 @@ codeunit 51114 "sampleCU"
 
     end;
 
-    [EventSubscriber(ObjectType::Page, Page::Gitpage, 'OnAfterActionEvent', 'CuDemo', false, false)]
+    [EventSubscriber(ObjectType::Page, Page::GitCustpage, 'OnAfterActionEvent', 'CuDemo', false, false)]
     local procedure MyProcedure()
     begin
         Message('Action Validation Successful');

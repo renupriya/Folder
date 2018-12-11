@@ -32,6 +32,6 @@ page 51112 "CustCard"
     end;
 
     var
-        gitpage:page Gitpage;
+        gitpage:page GitCustpage;
 
 }
