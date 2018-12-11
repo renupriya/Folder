@@ -1,4 +1,4 @@
-page 51113 "Gitpage"
+page 51113 "GitCustpage"
 {
     PageType = Card;
     ApplicationArea = All;
